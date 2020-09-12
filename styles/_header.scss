@@ -1,0 +1,107 @@
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+                      to right bottom,
+                      rgba($color-light, 0.8), 
+                      rgba($color-dark, 0.8)), 
+  url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  @include respond(md) {
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+  
+  &__logo {
+    height: 3.5rem;
+  }
+
+  &__title-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}
+
+.title {
+  color: $color-white;
+  text-transform: uppercase;
+
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+  
+  &--main {
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    padding-left: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    @include respond(sm) {
+      letter-spacing: 2rem; 
+      padding-left: 2.2rem;    
+    }
+    @include respond(xs) {
+      font-size: 5rem; 
+      letter-spacing: 1.5rem;  
+      padding-left: 1.7rem;
+    }
+  }
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.3rem;
+    padding-left: 1.3rem;
+    animation: moveInRight 1s ease-out;
+
+    @include respond(sm) {
+      letter-spacing: .8rem;
+    }
+    @include respond(xs) {
+      font-size: 1.8rem; 
+      letter-spacing: .4rem;  
+    }
+  }
+}
+
+@keyframes moveInLeft{
+  0% {
+    opacity: 0;
+    transform: translate(-10rem);
+  }
+  80% {
+    transform: translate(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight{
+  0% {
+    opacity: 0;
+    transform: translate(10rem);
+  }
+  80% {
+    transform: translate(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}

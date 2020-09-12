@@ -1,0 +1,71 @@
+$space-vertical: 4rem;
+$space-horizontal: 4rem;
+
+//mixin
+@mixin clearfix {
+  &::after{
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto;
+  // background-color: rosybrown;
+  &:not(:last-child){
+    margin-bottom: $space-vertical;
+  }
+
+  @include respond(lg) {
+    // max-width: 50rem; 
+    width: 90%;
+    padding: 0 2rem;
+  }
+
+  // @include respond(sm) {
+  //   max-width: 35rem; 
+  // }
+
+  @include clearfix;
+
+  [class^="col-"] {
+    float: left;
+
+    &:not(:last-child){
+      margin-right: $space-horizontal;
+
+      @include respond(lg) {
+        margin-right: 0; 
+        margin-bottom: 3rem;  
+      }
+    }
+
+    @include respond(lg) {
+      width: 100% !important; 
+      float: none;
+      display: block;
+    }
+  }
+
+  .col-50 {
+    width: calc( (100% - #{$space-horizontal} )/ 2);
+  }
+
+  .col-33 {
+    width: calc( (100% - 2 * #{$space-horizontal} )/ 3);
+  }
+
+  .col-25 {
+    width: calc( (100% - 3 * #{$space-horizontal} )/ 4);
+  }
+
+  .col-66 {
+    width: calc( 2 * ((100% - 2 * #{$space-horizontal} )/ 3) + #{$space-horizontal});
+  }
+
+  .col-75 {
+    width: calc( 3 * ((100% - 3 * #{$space-horizontal} )/ 4) + 2 * #{$space-horizontal});
+  }
+}

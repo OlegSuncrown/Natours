@@ -1,0 +1,159 @@
+.modal {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  background-color: rgba(0,0,0,.8);
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  padding: 8% 12%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s;
+  transition-timing-function: ease-in-out;
+
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal-box {
+    border-radius: 5px;
+    height: 100%;
+    background-color: white;
+    overflow: hidden;
+    position: relative;
+
+    transform: scale(0);
+    opacity: 0;
+    visibility: hidden;
+
+    transition: opacity .3s, transform .3s;
+    transition-timing-function: ease-in-out;
+
+  }
+
+  &:target .modal-box{
+    backface-visibility: hidden;
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+
+}
+.part-left, .part-right{
+  position: absolute;
+  height: 100%;
+}
+
+.part-left {
+  top: 0;
+  left: 0;
+  width: 35%;
+
+  @include respond(lg) {
+    width: 100%;
+    // top: 70%;
+    position: relative;
+    height: 40%;
+  }
+
+  @include respond(sm) {
+    height: 30%;
+  }
+
+  @include respond(xs) {
+    height: 23%;
+  }
+
+  img {
+    display: block;
+    height: 50%;
+    width: 100%;
+    object-fit: cover;
+
+    @include respond(lg) {
+      display: block;
+      width: 50%;
+      height: 100%;
+      float: right;
+    }
+  }
+}
+
+.part-right {
+  top: 0;
+  right: 0;
+  width: 65%;
+  padding: 3rem 3rem;
+  overflow: auto;
+
+  @include respond(lg) {
+    width: 100%;
+    height: 60%;
+    position: relative;
+  }
+
+  @include respond(sm) {
+    height: 70%;
+  }
+  @include respond(xs) {
+    height: 77%;
+  }
+
+  h2 {
+    margin-top: 1rem;
+    font-size: 3rem;
+  }
+
+  .modal-text {
+    width: 100%;
+    font-size: 1.4rem;
+    column-count: 2;
+    column-gap: 3rem;
+    column-rule: 1px solid rgb(224, 231, 233);
+    margin-bottom: 5rem;
+    // margin: 3rem 0 ;
+
+    @include respond(lg) {
+      margin-bottom: 2rem;
+    }
+
+    @include respond(sm) {
+      column-count: 1;
+    }
+ 
+  }
+}
+
+.modal-close {
+  
+  &:link,
+  &:visited {
+    line-height: 1.5rem;
+    padding: .5rem;
+    color: rgb(88, 84, 84);
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    font-size: 3rem;
+    text-decoration: none;
+    display: inline-block;
+    z-index: 1000;
+
+    @include respond(lg) {
+      color: white;
+      top: 1.5rem;
+      right: 1.5rem;
+      // background-color: rgb(255, 255, 255);
+      // border-radius: 50%;
+      text-shadow: 2px 2px 8px #0e0e0e;
+    }
+  }
+
+  &:hover {
+    color: $color;
+  }
+ 
+}
+

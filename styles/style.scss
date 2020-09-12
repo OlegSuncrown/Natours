@@ -1,0 +1,107 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+@import "home";
+*/
+@import "mixins";
+
+$color: #55c57a;
+$color-light: #7ed56f;
+$color-dark: #28b485;
+
+$color-grey: #777;
+$color-white: #fff;
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;   /* 10/16 * 100 = 62.5% */
+
+  @include respond(lg) {
+    font-size: 56.25%;  //1rem = 9px
+  }
+  @include respond(md) {
+    font-size: 50%;     //1rem = 8px, 8/16 = 50%
+  }
+  @include respond(xl) {
+    font-size: 75%;     //1 rem = 12px
+  }
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem; 
+  line-height: 1.7;
+  color: $color-grey;
+  padding: 3rem;
+  box-sizing: border-box;
+
+  @include respond(md) {
+    padding: 0;     //1rem = 8px, 8/16 = 50%
+  }
+}
+// Utils
+.u-center-text {
+  text-align: center;
+}
+
+.u-margin-bottom-big {
+  margin-bottom: 8rem;
+
+  @include respond(lg) {
+    margin-bottom: 4rem;
+  }
+}
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem;
+}
+
+.u-margin-top-medium {
+  margin-top: 3rem !important;
+}
+
+.u-margin-top {
+  margin-top: 10rem;
+
+  @include respond(lg) {
+    margin-top: 5rem;
+  }
+}
+
+.title-article {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: 1.6rem;
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}
+
+
+@import "grid";
+@import "header";
+@import "button";
+@import "about";
+@import "features";
+@import "cards";
+@import "modal";
+@import "stories";
+@import "form";
+@import "navigation"; 
+@import "footer"; 
+
+

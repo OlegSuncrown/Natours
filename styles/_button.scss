@@ -1,0 +1,84 @@
+
+.btn {
+&,
+&:link,
+&:visited {
+  // font-size: 1.6rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: transform .3s, opacity .3s, box-shadow .3s;
+  position: relative;
+
+  //Change for buttom
+  border: none;
+  cursor: pointer;
+}
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    //:hover::after
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+  &:focus,
+  &:active {
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
+  }
+  
+  &--white {
+    background-color: $color-white;
+    color: $color-grey;
+
+    &::after {
+      background: $color-white;
+    }
+    
+  }
+
+  &--green {
+    background-color: $color;
+    color: white;
+
+    &::after {
+      background: $color;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: -1;
+    transition: transform .3s, opacity .3s;
+  }
+  
+  &--animation {
+    animation: moveInBtn 0.5s ease-out .5s;
+    animation-fill-mode: backwards;
+  }
+}
+
+@keyframes moveInBtn{
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
